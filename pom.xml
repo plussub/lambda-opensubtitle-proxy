@@ -86,7 +86,7 @@
                 <artifactId>maven-shade-plugin</artifactId>
                 <version>2.3</version>
                 <configuration>
-                    <outputFile>target/opensubtitle-proxy.jar</outputFile>
+                    <outputFile>target/opensubtitle-proxy.zip</outputFile>
                     <createDependencyReducedPom>false</createDependencyReducedPom>
                 </configuration>
                 <executions>
