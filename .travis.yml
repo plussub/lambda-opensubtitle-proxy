@@ -15,4 +15,4 @@ deploy:
   secret_access_key: $AWS_SECRET_KEY
   timeout: 20
   memory_size: 1536
-  zip: ./target/opensubtitle-proxy-1.0-SNAPSHOT-shaded.jar
+#  zip: ./target/opensubtitle-proxy-1.0-SNAPSHOT-shaded.jar
