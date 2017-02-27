@@ -1,0 +1,9 @@
+deploy:
+  provider: lambda
+  function_name: "opensubtitle_proxy"
+  region: "eu-central-1"
+  role: "arn:aws:iam::029902516270:role/lambda_opensubtitle_proxy"
+  runtime: "java8"
+  handler_name: "com.plussub.opensubtitle.proxy.OpenSubtitleProxyRequestHandler::handleRequest"
+  access_key_id:  $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY
