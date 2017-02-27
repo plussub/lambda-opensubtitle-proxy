@@ -1,3 +1,6 @@
+language: java
+sudo: false
+script: mvn clean verify
 deploy:
   provider: lambda
   function_name: "opensubtitle_proxy"
