@@ -1,6 +1,5 @@
 package com.plussub.opensubtitle.proxy;
 
-
 import com.amazonaws.services.lambda.runtime.RequestHandler;
 import com.amazonaws.services.lambda.runtime.Context;
 import com.google.inject.Guice;
