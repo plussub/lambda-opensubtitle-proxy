@@ -12,7 +12,7 @@ public class OpenSubtitleProxyRequestHandlerTest {
     @Test
     public void test() throws Exception {
 //        OpenSubtitleProxyRequestHandler requestHandler = new OpenSubtitleProxyRequestHandler();
-//        System.out.println(requestHandler.handleRequest(new Request(), null));
+//        System.out.println(requestHandler.handleRequest(new SearchRequest(), null));
 
         //        gateway.login();
     }

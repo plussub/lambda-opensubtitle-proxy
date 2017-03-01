@@ -3,7 +3,7 @@ package com.plussub.opensubtitle.proxy;
 /**
  * Created by sonste on 26.02.2017.
  */
-public class Request {
+public class SearchRequest {
     private String imdbid;
     private String iso639LanguageCode;
 
@@ -25,7 +25,7 @@ public class Request {
 
     @Override
     public String toString() {
-        return "Request{" +
+        return "SearchRequest{" +
                 "imdbid='" + imdbid + '\'' +
                 ", iso639LanguageCode='" + iso639LanguageCode + '\'' +
                 '}';
