@@ -11,8 +11,8 @@ public class OpenSubtitleProxyRequestHandlerTest {
 
     @Test
     public void test() throws Exception {
-        OpenSubtitleProxyRequestHandler requestHandler = new OpenSubtitleProxyRequestHandler();
-        System.out.println(requestHandler.handleRequest(new Request(), null));
+//        OpenSubtitleProxyRequestHandler requestHandler = new OpenSubtitleProxyRequestHandler();
+//        System.out.println(requestHandler.handleRequest(new Request(), null));
 
         //        gateway.login();
     }
