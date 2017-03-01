@@ -37,6 +37,7 @@ public class SearchAction implements OpenSubtitleAction<List<Map<String,String>>
         List<Object> foundedSubtitles =  Arrays.asList((Object[]) searchResult.get("data"));
 
         return foundedSubtitles.stream()
+                .parallel()
                 .map(obj -> (Map<String,String>) obj)
                 .filter(SearchAction::onlySupportedFormats)
                 .filter(SearchAction::onlySupportedEncodings)

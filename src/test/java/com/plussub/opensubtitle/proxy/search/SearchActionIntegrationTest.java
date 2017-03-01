@@ -39,6 +39,6 @@ public class SearchActionIntegrationTest {
         Guice.createInjector(BoundFieldModule.of(this)).injectMembers(this);
 
         LoginToken loginToken = loginAction.execute(null);
-        System.out.println(searchAction.execute(new SearchCriteria(loginToken,"0110912","eng")).size());
+        searchAction.execute(new SearchCriteria(loginToken,"0110912","eng")).forEach(System.out::println);
     }
 }

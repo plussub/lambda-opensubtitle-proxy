@@ -1,0 +1,95 @@
+swagger: '2.0'
+info:
+  version: 1.0.0
+  title: OpenSubtitle Proxy API
+  description: API to encapsulate xml rpc to rest
+  # put the contact info for your development or API team
+  contact:
+    email: stefan.breitenstein@gmail.com
+
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+
+# all paths will be relative to the basePath specified
+# basePath: /v1
+
+# tags are used for organizing operations
+tags:
+- name: admins
+  description: Secured Admin-only calls
+- name: developers
+  description: Operations available to regular developers
+schemes:
+- https
+paths:
+  /subtitle:
+    get:
+      tags:
+      - developers
+      summary: search subtitle
+      operationId: searchSubtitle
+      description: |
+        By passing in the appropriate options, you can search for
+        available subtitles at OpenSubtitles
+      produces:
+      - application/json
+      parameters:
+      - in: query
+        name: imdbid
+        required: true
+        type: string
+        pattern: ^(tt)?[0-9]*$
+        description: pass an imdbid with or without tt prefix
+      - in: query
+        name: iso639LanguageCode
+        required: true
+        type: string
+        pattern: ^[A-Za-z]{3}$
+        description: language code; 3 chars
+      responses:
+        200:
+          description: search results matching criteria
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/SubtitleEntry'
+        400:
+          description: bad input parameter
+definitions:
+  SubtitleEntry:
+    type: object
+    required:
+    - MovieName
+    - IDSubtitleFile
+    - SubLanguageID
+    - SubFormat
+    - LanguageName
+    - SubEncoding
+    - SubRating
+    properties:
+      MovieName:
+        type: string
+        description: Name of the movie
+      IDSubtitleFile:
+        type: string
+        format: int64
+        description: Subtitle ID need for download
+      SubLanguageID:
+        type: string
+        description: Subtitle language as ISO-639; 3 letters
+      SubFormat:
+        type: string
+        description: Given subtitle format
+      LanguageName:
+        type: string
+        description: Subtitle language as plain english
+      SubEncoding:
+        type: string
+        description: Subtitle text encoding
+      SubRating:
+        type: string
+        format: double
+        description: Rating for the given subtitle
+host: virtserver.swaggerhub.com
+basePath: /ste-xx/opensubtitle_proxy/1.0.0
