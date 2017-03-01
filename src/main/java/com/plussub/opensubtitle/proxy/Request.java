@@ -4,30 +4,30 @@ package com.plussub.opensubtitle.proxy;
  * Created by sonste on 26.02.2017.
  */
 public class Request {
-    String firstName;
-    String lastName;
+    private String imdbid;
+    private String iso639LanguageCode;
 
-    public String getFirstName() {
-        return firstName;
+    public String getImdbid() {
+        return imdbid;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public void setImdbid(String imdbid) {
+        this.imdbid = imdbid;
     }
 
-    public String getLastName() {
-        return lastName;
+    public String getIso639LanguageCode() {
+        return iso639LanguageCode;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setIso639LanguageCode(String iso639LanguageCode) {
+        this.iso639LanguageCode = iso639LanguageCode;
     }
 
-    public Request(String firstName, String lastName) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-    }
-
-    public Request() {
+    @Override
+    public String toString() {
+        return "Request{" +
+                "imdbid='" + imdbid + '\'' +
+                ", iso639LanguageCode='" + iso639LanguageCode + '\'' +
+                '}';
     }
 }
