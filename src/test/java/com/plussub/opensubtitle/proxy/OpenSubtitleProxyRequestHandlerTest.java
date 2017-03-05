@@ -9,11 +9,18 @@ import static org.junit.Assert.*;
  */
 public class OpenSubtitleProxyRequestHandlerTest {
 
-    @Test
-    public void test() throws Exception {
-//        OpenSubtitleProxyRequestHandler requestHandler = new OpenSubtitleProxyRequestHandler();
-//        System.out.println(requestHandler.handleRequest(new SearchRequest(), null));
-
-        //        gateway.login();
+    @Test(expected=InvalidSearchRequestException.class)
+    public void invalid_language_codes_should_throw_an_exception() throws Exception {
+        SearchRequest searchRequest = new SearchRequest();
+        searchRequest.setIso639LanguageCode("asdf");
     }
+
+    @Test
+    public void valid_language_codes() throws Exception {
+        SearchRequest searchRequest = new SearchRequest();
+        searchRequest.setIso639LanguageCode("eng");
+        searchRequest.setIso639LanguageCode("pob"); //Portuguese Brazilian
+    }
+
+
 }
