@@ -1,5 +1,6 @@
 package com.plussub.opensubtitle.proxy;
 
+import java.util.Arrays;
 import java.util.Locale;
 
 import static com.plussub.opensubtitle.proxy.SupportedLanguages.existsLanguageIso639Code;
@@ -16,7 +17,13 @@ public class SearchRequest {
     }
 
     public void setImdbid(String imdbid) {
-        this.imdbid = imdbid;
+        String validImdbId = imdbid.toLowerCase().replace("t","");
+        boolean containsAlphabeticChar = validImdbId.chars().mapToObj(c -> (char)c).anyMatch(c -> Character.isAlphabetic(c));
+        if(containsAlphabeticChar){
+            throw new InvalidRequestException("unsupported imdbd format. supported: <tt><number> where <tt> is optional");
+        }
+
+        this.imdbid = validImdbId;
     }
 
     public String getIso639LanguageCode() {
@@ -26,10 +33,9 @@ public class SearchRequest {
     public void setIso639LanguageCode(String iso639LanguageCode) {
 
         if(!existsLanguageIso639Code(iso639LanguageCode)){
-            throw new InvalidSearchRequestException("Unknown language code");
+            throw new InvalidRequestException("Unknown language code");
         }
 
-        Locale.forLanguageTag(iso639LanguageCode);
         this.iso639LanguageCode = iso639LanguageCode;
     }
 
