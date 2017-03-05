@@ -64,7 +64,7 @@ public class SearchAction implements OpenSubtitleAction<List<Map<String,String>>
     }
 
     private static boolean onlySupportedFormats(Map<String,String> entry){
-        return "srt".equals(entry.get("SubFormat"));
+        return "srt".equals(entry.get("SubFormat")) || "vtt".equals(entry.get("SubFormat"));
     }
 
     private static boolean onlySupportedEncodings(Map<String,String> entry){
