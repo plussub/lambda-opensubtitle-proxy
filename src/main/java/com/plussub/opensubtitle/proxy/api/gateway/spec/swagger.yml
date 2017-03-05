@@ -23,7 +23,7 @@ tags:
 schemes:
 - https
 paths:
-  /subtitle:
+  /subtitle/{imdbid}/{iso639LanguageCode}:
     get:
       tags:
       - developers
@@ -35,13 +35,13 @@ paths:
       produces:
       - application/json
       parameters:
-      - in: query
+      - in: path
         name: imdbid
         required: true
         type: string
         pattern: ^(tt)?[0-9]*$
         description: pass an imdbid with or without tt prefix
-      - in: query
+      - in: path
         name: iso639LanguageCode
         required: true
         type: string
