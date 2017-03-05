@@ -41,7 +41,12 @@ public class OpenSubtitleProxyRequestHandlerTest {
     public void imdbid_with_character_should_throw_an_exception() throws Exception {
         SearchRequest searchRequest = new SearchRequest();
         searchRequest.setImdbid("ttasdf");
-        assertThat(searchRequest.getImdbid(),is("ttasdf"));
+    }
+
+    @Test(expected=InvalidRequestException.class)
+    public void missing_imdbid_should_throw_an_exception() throws Exception {
+        SearchRequest searchRequest = new SearchRequest();
+        searchRequest.setImdbid("");
     }
 
 

@@ -17,6 +17,10 @@ public class SearchRequest {
     }
 
     public void setImdbid(String imdbid) {
+        if(imdbid.isEmpty()){
+            throw new InvalidRequestException("imdbid is empty");
+        }
+
         String validImdbId = imdbid.toLowerCase().replace("t","");
         boolean containsAlphabeticChar = validImdbId.chars().mapToObj(c -> (char)c).anyMatch(c -> Character.isAlphabetic(c));
         if(containsAlphabeticChar){
