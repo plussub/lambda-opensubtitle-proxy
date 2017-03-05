@@ -16,7 +16,7 @@ public class OpenSubtitleProxyRequestHandler implements RequestHandler<SearchReq
 
     public List<Map<String, String>> handleRequest(SearchRequest request, Context context) {
         Injector injector = Guice.createInjector(new Module());
-        LoginToken loginToken = injector.getInstance(LoginAction.class).execute(null);
+        LoginToken loginToken = injector.getInstance(LoginAction.class).execute(Criteria.VOID_CRITERIA);
         SearchAction searchAction = injector.getInstance(SearchAction.class);
         return  searchAction.execute(new SearchCriteria(loginToken, request.getImdbid(), request.getIso639LanguageCode()));
     }

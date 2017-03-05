@@ -1,11 +1,12 @@
 package com.plussub.opensubtitle.proxy.search;
 
+import com.plussub.opensubtitle.proxy.Criteria;
 import com.plussub.opensubtitle.proxy.login.LoginToken;
 
 /**
  * Created by sonste on 27.02.2017.
  */
-public class SearchCriteria {
+public class SearchCriteria implements Criteria {
 
     private final String imdbId;
 
